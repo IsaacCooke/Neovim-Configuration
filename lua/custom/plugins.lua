@@ -1,12 +1,5 @@
 local plugins = {
   {
-    "neovim/nvim-lspconfig",
-    config = function(_)
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end,
-  },
-  {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function()
@@ -26,7 +19,19 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
-  }
+    config = function(_, opts)
+      require("core.utils").load_mappings("dap")
+    end
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "pyright",
+        "debugpy",
+      },
+    },
+  },
 }
 
 return plugins
