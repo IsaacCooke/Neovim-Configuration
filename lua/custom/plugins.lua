@@ -73,7 +73,13 @@ local plugins = {
         dapui.close()
       end
     end
-  }
+  },
+  {
+    "pocco81/auto-save.nvim",
+    config = function(_, opts)
+      require("core.utils").load_mappings("autosave")
+    end
+  },
 }
 
 return plugins
