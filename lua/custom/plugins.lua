@@ -32,6 +32,7 @@ local plugins = {
         "gopls",
         "clangd",
         "codelldb",
+        "zls"
       },
     },
   },
@@ -76,9 +77,44 @@ local plugins = {
   },
   {
     "pocco81/auto-save.nvim",
-    config = function(_, opts)
+    config = function(_, _)
       require("core.utils").load_mappings("autosave")
     end
+  },
+  -- Zig
+  {
+    "ziglang/zig.vim",
+  },
+  {
+    "akinsho/toggleterm.nvim",
+        config = function()
+        require("toggleterm").setup()
+        end,
+  },
+  {
+    "nvim-lua/plenary.nvim",
+  },
+  {
+    "NTBBloodbath/zig-tools.nvim",
+    ft = "zig",
+    config = function()
+    require("zig-tools").setup()
+    end,
+    requires = {
+    {
+        "akinsho/toggleterm.nvim",
+        config = function()
+        require("toggleterm").setup()
+        end,
+      },
+    {
+      "nvim-lua/plenary.nvim",
+      module_pattern = "plenary.*"}
+    }
+  },
+  {
+  "neoclide/coc.nvim",
+    branch = "release",
   },
 }
 
