@@ -32,7 +32,8 @@ local plugins = {
         "gopls",
         "clangd",
         "codelldb",
-        "zls"
+        "zls",
+        "rust-analyzer"
       },
     },
   },
