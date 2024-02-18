@@ -16,6 +16,20 @@ if not vim.loop.fs_stat(lazypath) then
   require("core.bootstrap").lazy(lazypath)
 end
 
+-- Sort out dart autoformat (Can't think of anywhere else to put this)
+-- Define the function to run dart format
+local function dart_format()
+    vim.cmd('silent! w !dart format --fix -')
+end
+
+-- Set up autocmd to run dart_format on BufWritePre for Dart files
+vim.cmd([[
+augroup FormatDart
+    autocmd!
+    autocmd BufWritePre *.dart lua dart_format()
+augroup END
+]])
+
 dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
