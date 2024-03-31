@@ -33,7 +33,10 @@ local plugins = {
         "clangd",
         "codelldb",
         "zls",
-        "rust-analyzer"
+        "rust-analyzer",
+        "tsserver",
+        "eslint-lsp",
+        "prettier"
       },
     },
   },
@@ -126,6 +129,21 @@ local plugins = {
       'stevearc/dressing.nvim', -- optional for vim.ui.select
     },
     config = true,
+  },
+  -- Javascript / Typescript
+  {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function ()
+      require "custom.configs.lint"
+    end
+  },
+  {
+    "mhartington/formatter.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.formatter"
+    end
   }
 }
 
