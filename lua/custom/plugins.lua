@@ -80,6 +80,9 @@ local plugins = {
     end
   },
   {
+    "nvim-neotest/nvim-nio"
+  },
+  {
     "pocco81/auto-save.nvim",
     config = function(_, _)
       require("core.utils").load_mappings("autosave")
