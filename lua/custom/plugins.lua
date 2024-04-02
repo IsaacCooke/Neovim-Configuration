@@ -108,20 +108,17 @@ local plugins = {
     require("zig-tools").setup()
     end,
     requires = {
-    {
+      {
         "akinsho/toggleterm.nvim",
         config = function()
         require("toggleterm").setup()
         end,
       },
-    {
-      "nvim-lua/plenary.nvim",
-      module_pattern = "plenary.*"}
+      {
+        "nvim-lua/plenary.nvim",
+        module_pattern = "plenary.*"
+      }
     }
-  },
-  {
-    "neoclide/coc.nvim",
-    branch = "release",
   },
   -- Dart / Flutter
   {
@@ -147,7 +144,10 @@ local plugins = {
     opts = function()
       return require "custom.configs.formatter"
     end
-  }
+  },
+  {
+    import = "custom.configs.coc"
+  },
 }
 
 return plugins
