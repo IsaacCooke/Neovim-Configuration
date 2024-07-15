@@ -61,9 +61,6 @@ local plugins = {
     },
   },
   {
-    "rhysd/vim-clang-format"
-  },
-  {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
